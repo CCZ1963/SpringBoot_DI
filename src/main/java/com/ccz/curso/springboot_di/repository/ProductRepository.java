@@ -10,7 +10,7 @@ public class ProductRepository {
     // Una lista del tipo Product
     private List<Product> data;
 
-    public ProductRepository(List<Product> data) {
+    public ProductRepository() {
         this.data = Arrays.asList(
                 new Product(1L, "Memoria Corsair 32", 300L),
                 new Product(2L, "CPU Intel Core 19", 850L),
