@@ -1,17 +1,15 @@
 package com.ccz.curso.springboot_di.model;
 
-import java.io.Serializable;
-
-public class ProductModel implements Cloneable {
+public class ProductAnteriorModel {
 
     private Long id;
     private String name;
     private Long price;
 
-    public ProductModel() {
+    public ProductAnteriorModel() {
     }
 
-    public ProductModel(Long id, String name, Long price) {
+    public ProductAnteriorModel(Long id, String name, Long price) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -28,14 +26,4 @@ public class ProductModel implements Cloneable {
     public Long getPrice() { return price; }
 
     public void setPrice(Long price) { this.price = price; }
-
-    @Override
-    public Object clone() {
-        try {
-            return super.clone();
-        } catch (CloneNotSupportedException e) {
-            return new ProductModel(id, name, price);
-            // return new ProductoModel(this.getId(), this.getName(), this.getPrice()
-        }
-    }
 }
