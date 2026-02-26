@@ -1,15 +1,15 @@
 package com.ccz.curso.springboot_di.model;
 
-public class Product {
+public class ProductModel {
 
     private Long id;
     private String name;
     private Long price;
 
-    public Product() {
+    public ProductModel() {
     }
 
-    public Product(Long id, String name, Long price) {
+    public ProductModel(Long id, String name, Long price) {
         this.id = id;
         this.name = name;
         this.price = price;

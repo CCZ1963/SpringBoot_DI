@@ -1,6 +1,6 @@
 package com.ccz.curso.springboot_di.controller;
 
-import com.ccz.curso.springboot_di.model.Product;
+import com.ccz.curso.springboot_di.model.ProductModel;
 import com.ccz.curso.springboot_di.service.ProductService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,12 +16,12 @@ public class ProductController {
     private ProductService productService = new ProductService();
 
     @GetMapping
-    public List<Product> list() {
+    public List<ProductModel> list() {
         return productService.findAll();
     }
 
     @GetMapping("/{id}")
-    public Product show(@PathVariable Long id){
+    public ProductModel show(@PathVariable Long id){
         return productService.findById(id);
     }
 }
