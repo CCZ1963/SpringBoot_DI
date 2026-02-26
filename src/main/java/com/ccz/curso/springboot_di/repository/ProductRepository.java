@@ -5,7 +5,7 @@ import com.ccz.curso.springboot_di.model.ProductModel;
 import java.util.Arrays;
 import java.util.List;
 
-public class ProductRepository {
+public class ProductRepository implements InterfaceProductRepository {
 
     // Una lista del tipo Product
     private List<ProductModel> data;
@@ -19,10 +19,12 @@ public class ProductRepository {
         );
     }
 
+    @Override
     public List<ProductModel> findAll(){
         return data;
     }
 
+    @Override
     public ProductModel findById(Long id){
         return data.stream().filter(p -> p.getId().equals(id)).findFirst().orElse(null);
     }
