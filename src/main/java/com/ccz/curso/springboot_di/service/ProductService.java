@@ -3,12 +3,15 @@ package com.ccz.curso.springboot_di.service;
 import com.ccz.curso.springboot_di.model.ProductModel;
 import com.ccz.curso.springboot_di.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+//import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Component
+// @Component
+// Lo reemplazamos con @Service
+@Service
 public class ProductService implements InterfaceProductService {
 
     // private ProductRepository repository = new ProductRepository();

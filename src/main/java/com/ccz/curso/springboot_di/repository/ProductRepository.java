@@ -1,12 +1,15 @@
 package com.ccz.curso.springboot_di.repository;
 
 import com.ccz.curso.springboot_di.model.ProductModel;
-import org.springframework.stereotype.Component;
+// import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.Arrays;
 import java.util.List;
 
-@Component
+// @Component
+// Lo reemplzamos con @Repository
+@Repository // Es un Component con acceso a datos, más específico
 public class ProductRepository implements InterfaceProductRepository {
 
     // Una lista del tipo Product
