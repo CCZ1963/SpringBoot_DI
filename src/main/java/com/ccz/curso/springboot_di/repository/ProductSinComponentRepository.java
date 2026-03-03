@@ -1,18 +1,16 @@
 package com.ccz.curso.springboot_di.repository;
 
 import com.ccz.curso.springboot_di.model.ProductModel;
-import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.List;
 
-@Component
-public class ProductRepository implements InterfaceProductRepository {
+public class ProductSinComponentRepository implements InterfaceProductRepository {
 
     // Una lista del tipo Product
     private List<ProductModel> data;
 
-    public ProductRepository() {
+    public ProductSinComponentRepository() {
         this.data = Arrays.asList(
                 new ProductModel(1L, "Memoria Corsair 32", 300L),
                 new ProductModel(2L, "CPU Intel Core 19", 850L),

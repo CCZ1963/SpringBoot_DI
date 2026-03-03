@@ -2,23 +2,17 @@ package com.ccz.curso.springboot_di.service;
 
 import com.ccz.curso.springboot_di.model.ProductModel;
 import com.ccz.curso.springboot_di.repository.ProductRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Component
-public class ProductService implements InterfaceProductService {
+public class ProductSinComponentService implements InterfaceProductService {
 
-    // private ProductRepository repository = new ProductRepository();
-    // La línea de arriba es reemplazada por las dos líneas siguientes
-    @Autowired
-    private ProductRepository productRepository;
+    private ProductRepository repository = new ProductRepository();
 
     @Override
     public List<ProductModel> findAll(){
-        return productRepository.findAll().stream().map(p -> {
+        return repository.findAll().stream().map(p -> {
             Double priceImp = p.getPrice() * 1.25d;
             ProductModel newProductModel = (ProductModel) p.clone();
             newProductModel.setPrice(p.getPrice().longValue());
@@ -28,6 +22,6 @@ public class ProductService implements InterfaceProductService {
 
     @Override
     public ProductModel findById(Long id){
-        return productRepository.findById(id);
+        return repository.findById(id);
     }
 }
