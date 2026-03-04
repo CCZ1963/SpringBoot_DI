@@ -16,8 +16,13 @@ public class ProductController {
 
     // private ProductService productService = new ProductService();
     // La línea de arriba se reemplaza con las dos siguientes
-    @Autowired
+    // @Autowired -> Ahora anulamos @Autowired y creamos el constructor
+    // Tenemos el mismo resultado, otra forma de realizar Inyección de Dependencia
     private ProductService productService;
+
+    public ProductController(ProductService productService) {
+        this.productService = productService;
+    }
 
     @GetMapping
     public List<ProductModel> list() {

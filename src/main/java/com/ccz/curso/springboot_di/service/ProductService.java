@@ -16,8 +16,13 @@ public class ProductService implements InterfaceProductService {
 
     // private ProductRepository repository = new ProductRepository();
     // La línea de arriba es reemplazada por las dos líneas siguientes
-    @Autowired
+    // @Autowired -> ahora anulamos @Autowired y creamos el constructor
+    // Tenemos el mismo resultado, otra forma de realizar Inyección de Dependencia
     private ProductRepository productRepository;
+
+    public ProductService(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
 
     @Override
     public List<ProductModel> findAll(){
