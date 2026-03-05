@@ -30,7 +30,7 @@ public class ProductService implements InterfaceProductService {
         return interfaceProductRepository.findAll().stream().map(p -> {
             Double priceImp = p.getPrice() * 1.25d;
             ProductModel newProductModel = (ProductModel) p.clone();
-            newProductModel.setPrice(p.getPrice().longValue());
+            newProductModel.setPrice(priceImp.longValue());
             return newProductModel;
         }).collect(Collectors.toList());
     }

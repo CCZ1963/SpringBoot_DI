@@ -3,10 +3,12 @@ package com.ccz.curso.springboot_di.repository;
 import com.ccz.curso.springboot_di.model.ProductModel;
 // import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.context.annotation.RequestScope;
 
 import java.util.Arrays;
 import java.util.List;
 
+@RequestScope
 // @Component
 // Lo reemplazamos con @Repository
 // @Repository Es un Component con acceso a datos, más específico

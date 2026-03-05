@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 // @Component
 // Lo reemplazamos con @Service
 @Service
-public class ProductDosService implements InterfaceProductService {
+public class ProductTresService implements InterfaceProductService {
 
     // private ProductRepository repository = new ProductRepository();
     // La línea de arriba es reemplazada por las dos líneas siguientes
@@ -23,7 +23,7 @@ public class ProductDosService implements InterfaceProductService {
 
     // Con @Repository("productList") en ProductRepository.java le dimos un seudónimo a ProductRepository
     // También puede ser: public ProductDosService(@Qualifier("productRepository") InterfaceProductRepository interfaceProductRepository)
-    public ProductDosService(@Qualifier("productList") InterfaceProductRepository interfaceProductRepository) {
+    public ProductTresService(@Qualifier("productList") InterfaceProductRepository interfaceProductRepository) {
         this.interfaceProductRepository = interfaceProductRepository;
     }
 
@@ -31,10 +31,12 @@ public class ProductDosService implements InterfaceProductService {
     public List<ProductModel> findAll(){
         return interfaceProductRepository.findAll().stream().map(p -> {
             Double priceImp = p.getPrice() * 1.25d;
-            ProductModel newProductModel = (ProductModel) p.clone();
-            newProductModel.setPrice(priceImp.longValue());
-            // Se corrigió la línea de arriba
-            return newProductModel;
+            // ProductModel newProductModel = (ProductModel) p.clone();
+            // newProductModel.setPrice(priceImp.longValue());
+            // return newProductModel;
+            p.setPrice(priceImp.longValue());
+            return p; // @RequestScope en ProductRepository los precios no aumentan
+
         }).collect(Collectors.toList());
     }
 
