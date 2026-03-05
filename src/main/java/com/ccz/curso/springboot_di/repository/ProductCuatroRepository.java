@@ -1,6 +1,7 @@
 package com.ccz.curso.springboot_di.repository;
 
 import com.ccz.curso.springboot_di.model.ProductModel;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.context.annotation.SessionScope;
 

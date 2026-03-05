@@ -3,6 +3,7 @@ package com.ccz.curso.springboot_di.service;
 import com.ccz.curso.springboot_di.model.ProductModel;
 import com.ccz.curso.springboot_di.repository.InterfaceProductRepository;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,6 +22,9 @@ public class ProductCuatroService implements InterfaceProductService {
     // Se cambió de ProductRepósitory a InterfaceProductRepository
     private InterfaceProductRepository interfaceProductRepository;
 
+    @Value("${dato.imp}")
+    private String imp;
+
     // Con @Repository("productList") en ProductRepository.java le dimos un seudónimo a ProductRepository
     // También puede ser: public ProductDosService(@Qualifier("productRepository") InterfaceProductRepository interfaceProductRepository)
     public ProductCuatroService(@Qualifier("productListCuatro") InterfaceProductRepository interfaceProductRepository) {
@@ -30,7 +34,7 @@ public class ProductCuatroService implements InterfaceProductService {
     @Override
     public List<ProductModel> findAll(){
         return interfaceProductRepository.findAll().stream().map(p -> {
-            Double priceImp = p.getPrice() * 1.25d;
+            Double priceImp = p.getPrice() * Double.parseDouble(imp);
             // ProductModel newProductModel = (ProductModel) p.clone();
             // newProductModel.setPrice(priceImp.longValue());
             // return newProductModel;
