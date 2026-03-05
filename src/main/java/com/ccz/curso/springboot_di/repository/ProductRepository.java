@@ -9,7 +9,8 @@ import java.util.List;
 
 // @Component
 // Lo reemplazamos con @Repository
-@Repository // Es un Component con acceso a datos, más específico
+// @Repository Es un Component con acceso a datos, más específico
+@Repository("productList") // Le damos el seudónimo de producttList a productRepository
 public class ProductRepository implements InterfaceProductRepository {
 
     // Una lista del tipo Product
