@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 
 // @Component
-// Lo reemplzamos con @Repository
+// Lo reemplazamos con @Repository
 @Repository // Es un Component con acceso a datos, más específico
 public class ProductRepository implements InterfaceProductRepository {
 

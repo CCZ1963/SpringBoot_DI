@@ -1,8 +1,7 @@
 package com.ccz.curso.springboot_di.service;
 
 import com.ccz.curso.springboot_di.model.ProductModel;
-import com.ccz.curso.springboot_di.repository.ProductRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.ccz.curso.springboot_di.repository.InterfaceProductRepository;
 //import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -18,15 +17,17 @@ public class ProductService implements InterfaceProductService {
     // La línea de arriba es reemplazada por las dos líneas siguientes
     // @Autowired -> ahora anulamos @Autowired y creamos el constructor
     // Tenemos el mismo resultado, otra forma de realizar Inyección de Dependencia
-    private ProductRepository productRepository;
 
-    public ProductService(ProductRepository productRepository) {
-        this.productRepository = productRepository;
+    // Se cambió de ProductRepósitory a InterfaceProductRepository
+    private InterfaceProductRepository interfaceProductRepository;
+
+    public ProductService(InterfaceProductRepository interfaceProductRepository) {
+        this.interfaceProductRepository = interfaceProductRepository;
     }
 
     @Override
     public List<ProductModel> findAll(){
-        return productRepository.findAll().stream().map(p -> {
+        return interfaceProductRepository.findAll().stream().map(p -> {
             Double priceImp = p.getPrice() * 1.25d;
             ProductModel newProductModel = (ProductModel) p.clone();
             newProductModel.setPrice(p.getPrice().longValue());
@@ -36,6 +37,6 @@ public class ProductService implements InterfaceProductService {
 
     @Override
     public ProductModel findById(Long id){
-        return productRepository.findById(id);
+        return interfaceProductRepository.findById(id);
     }
 }
