@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "name": "Memoria Corsair 32",
+    "price": 375
+  },
+  {
+    "id": 2,
+    "name": "CPU Intel Core 19",
+    "price": 1070
+  },
+  {
+    "id": 3,
+    "name": "Teclado Razer5 Mini 60",
+    "price": 225
+  },
+  {
+    "id": 4,
+    "name": "Motherboard Gigabyte",
+    "price": 620
+  },
+  {
+    "id": 5,
+    "name": "Monitor Lenovo 32",
+    "price": 1305
+  },
+  {
+    "id": 6,
+    "name": "Memoria RAM 8GB",
+    "price": 1025
+  },
+  {
+    "id": 7,
+    "name": "Mouse Ergonométrico Ergo",
+    "price": 175
+  },
+  {
+    "id": 8,
+    "name": "Motherboard Enterprice",
+    "price": 245
+  },
+  {
+    "id": 9,
+    "name": "Camara Gestor MCX",
+    "price": 890
+  }
+]
